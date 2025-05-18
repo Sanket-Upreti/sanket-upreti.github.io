@@ -33,7 +33,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
 
         <div className="overflow-hidden rounded-lg">
           <Image
-            src={project.image || "/placeholder.svg"}
+            src={project.image ?? "/placeholder.svg"}
             alt={project.title}
             width={800}
             height={450}
