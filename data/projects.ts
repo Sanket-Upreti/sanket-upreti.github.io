@@ -1,4 +1,4 @@
-export interface Project {
+export type TProject = {
   id: string
   title: string
   description: string
@@ -11,7 +11,7 @@ export interface Project {
   technologies: string[]
 }
 
-export const projects: Project[] = [
+export const projects: TProject[] = [
   {
     id: "ecommerce-platform",
     title: "E-commerce Platform",

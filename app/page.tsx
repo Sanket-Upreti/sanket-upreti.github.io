@@ -1,20 +1,19 @@
 import Link from "next/link"
-import { ArrowRight, Code, FileText, Github, Linkedin, Twitter } from "lucide-react"
+import { ArrowRight, FileText, Github, Linkedin, Newspaper  } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { CommandMenu } from "@/components/command-menu"
 import { HeroSection } from "@/components/hero-section"
 import { ProjectCard } from "@/components/project-card"
 import { SectionHeading } from "@/components/section-heading"
 import { projects } from "@/data/projects"
-
+import { GITHUB_URL, LINKEDIN_URL, MEDIUM_URL } from "@/constants"
+import { skills } from "@/data/skills"
+  
 export default function Home() {
-  // Get the first 4 projects for the homepage
   const featuredProjects = projects.slice(0, 4)
 
   return (
     <div className="min-h-screen bg-white">
-      <CommandMenu />
       <main className="container max-w-4xl px-4 py-10 mx-auto">
         <HeroSection />
 
@@ -33,15 +32,11 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-2 mt-6">
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">JavaScript</div>
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">TypeScript</div>
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">React</div>
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">Next.js</div>
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">Node.js</div>
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">Express</div>
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">Prisma ORM</div>
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">MySql</div>
-            <div className="px-3 py-1 text-sm bg-gray-100 rounded-full">Tailwind CSS</div>
+            {skills.map((skill) => (
+              <div key={skill} className="px-3 py-1 text-sm bg-gray-100 rounded-full">
+                {skill}
+              </div>
+            ))}
           </div>
         </section>
 
@@ -114,33 +109,24 @@ export default function Home() {
         <section className="mt-20">
           <SectionHeading title="Connect" />
           <div className="flex flex-wrap gap-4 mt-6">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="sm" className="gap-2">
                 <Github className="w-4 h-4" /> GitHub
               </Button>
             </Link>
-            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <Link href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="sm" className="gap-2">
                 <Linkedin className="w-4 h-4" /> LinkedIn
               </Button>
             </Link>
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <Link href={MEDIUM_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="sm" className="gap-2">
-                <Twitter className="w-4 h-4" /> Twitter
-              </Button>
-            </Link>
-            <Link href="https://codepen.io" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Code className="w-4 h-4" /> CodePen
+                <Newspaper className="w-4 h-4" /> Medium
               </Button>
             </Link>
           </div>
         </section>
       </main>
-
-      <footer className="py-6 mt-20 text-center text-gray-500 border-t">
-        <p>© {new Date().getFullYear()} Sanket Upreti. All rights reserved.</p>
-      </footer>
     </div>
   )
 }

@@ -16,9 +16,6 @@ export default function NotesPage() {
               <ArrowLeft className="w-4 h-4" /> Back to Home
             </Button>
           </Link>
-          <Button size="sm" className="gap-2">
-            <Plus className="w-4 h-4" /> New Note
-          </Button>
         </div>
 
         <SectionHeading title="Notes" />
@@ -63,10 +60,6 @@ export default function NotesPage() {
           />
         </div>
 
-        <div className="p-6 mt-12 border rounded-lg">
-          <h3 className="mb-4 text-xl font-medium">Create a New Note</h3>
-          <NoteEditor />
-        </div>
       </main>
     </div>
   )
